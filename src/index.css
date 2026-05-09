@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-graphite-950: #0a0a0a;
+  --color-graphite-900: #121212;
+  --color-graphite-800: #1c1c1c;
+  --color-graphite-700: #2a2a2a;
+  --color-graphite-600: #333333;
+  --color-graphite-500: #4a4a4a;
+}
+
+@layer base {
+  body {
+    @apply bg-graphite-950 text-neutral-100 selection:bg-white selection:text-black;
+    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+  }
+}
+
+.swiss-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.bento-card {
+  @apply rounded-none border border-graphite-800 bg-graphite-900 overflow-hidden transition-all duration-500;
+}
+
+.bento-card:hover {
+  @apply border-graphite-600 bg-graphite-800;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  color: transparent;
+}
+
+.text-stroke-hover:hover {
+  -webkit-text-stroke: 1px white;
+  color: white;
+}
