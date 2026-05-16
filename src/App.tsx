@@ -22,7 +22,8 @@ const projects = [
     category: "Data Architecture / SQL",
     description: "Desenvolvimento e estruturação de projetos de banco de dados, aplicando conceitos de modelagem relacional e boas práticas de arquitetura.",
     image: "https://images.unsplash.com/photo-1544380903-5861180ee4df?auto=format&fit=crop&q=80&w=800",
-    tags: ["SQL", "Relational Modeling", "Architecture"]
+    tags: ["SQL", "Relational Modeling", "Architecture"],
+    github: null
   },
   {
     id: 2,
@@ -30,15 +31,17 @@ const projects = [
     category: "Data Analysis / Python",
     description: "Sistema autoral para análise de indicadores empresariais e geração de diagnósticos estruturados para saúde financeira.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-    tags: ["Python", "Indicators", "Business Intelligence"]
+    tags: ["Python", "Indicators", "Business Intelligence"],
+    github: null
   },
   {
     id: 3,
     title: "Data Pipelines & Automation",
     category: "Data Engineering",
-    description: "Desenvolvimento de soluções robustas para processamento e transformação de dados estratégicos.",
+    description: "Pipeline de dados financeiros end-to-end com AWS S3, PostgreSQL e Metabase Dashboard. Cotações diárias de AAPL, GOOGL, MSFT, AMZN e META.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
-    tags: ["Python", "Automation", "ETL"]
+    tags: ["Python", "AWS", "PostgreSQL", "ETL", "Docker"],
+    github: "https://github.com/marinsonline-dev/finance-data-pipeline"
   }
 ];
 
@@ -163,8 +166,9 @@ const Hero = () => {
             <img 
               src="/input_file_0.png" 
               alt="Marcelo Marins" 
-              className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-1000 object-top"
+              className="w-full h-full object-cover object-top"
               referrerPolicy="no-referrer"
+              style={{ filter: "none" }}
             />
           </motion.div>
 
@@ -219,6 +223,7 @@ interface Project {
   description: string;
   image: string;
   tags: string[];
+  github: string | null;
 }
 
 const ProjectCard: FC<{ project: Project; index: number }> = ({ project, index }) => {
@@ -257,6 +262,20 @@ const ProjectCard: FC<{ project: Project; index: number }> = ({ project, index }
             </span>
           ))}
         </div>
+
+        {/* Botão GitHub — aparece só quando há link */}
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 flex items-center gap-3 border border-[#00c9c3] text-[#00c9c3] px-6 py-3 text-[9px] font-black uppercase tracking-[0.3em] hover:bg-[#00c9c3] hover:text-black transition-all duration-300 w-fit"
+          >
+            <Github size={14} />
+            Ver no GitHub
+            <ArrowUpRight size={12} />
+          </a>
+        )}
       </div>
     </motion.div>
   );
@@ -416,8 +435,8 @@ const Contact = () => {
         </motion.div>
 
         <div className="max-w-7xl mx-auto mt-20 flex justify-center gap-16 text-graphite-500 uppercase tracking-[0.5em] text-[10px] font-black group-hover:text-black transition-colors">
-          <a href="#" className="hover:text-black md:hover:text-white border-b border-transparent hover:border-black md:hover:border-white transition-all pb-1">GitHub</a>
-          <a href="#" className="hover:text-black md:hover:text-white border-b border-transparent hover:border-black md:hover:border-white transition-all pb-1">LinkedIn</a>
+          <a href="https://github.com/marinsonline-dev" target="_blank" rel="noopener noreferrer" className="hover:text-black md:hover:text-white border-b border-transparent hover:border-black md:hover:border-white transition-all pb-1">GitHub</a>
+          <a href="https://www.linkedin.com/in/marcelo-marins-94925a369" target="_blank" rel="noopener noreferrer" className="hover:text-black md:hover:text-white border-b border-transparent hover:border-black md:hover:border-white transition-all pb-1">LinkedIn</a>
           <a href="#" className="hover:text-black md:hover:text-white border-b border-transparent hover:border-black md:hover:border-white transition-all pb-1">Instagram</a>
         </div>
       </div>
