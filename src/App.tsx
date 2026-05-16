@@ -164,7 +164,7 @@ const Hero = () => {
             className="md:col-span-3 aspect-square border-r border-graphite-800 overflow-hidden"
           >
             <img 
-              src="/input_file_0.png" 
+              src={`${import.meta.env.BASE_URL}input_file_0.png`}
               alt="Marcelo Marins" 
               className="w-full h-full object-cover object-top"
               referrerPolicy="no-referrer"
